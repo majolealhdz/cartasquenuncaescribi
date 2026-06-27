@@ -3,29 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cartas que nunca escribí - Landing Page</title>
+    <title>Cartas que nunca escribí - Landing Page Vintage</title>
     <style>
-        /* Importación de fuentes de Google Fonts que simulan los estilos requeridos */
-        @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Caveat:wght@400..700&display=swap');
+        /* Importación de tipografías complementarias desde Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Special+Elite&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Reenie+Beanie&display=swap');
 
-        /* NOTAS SOBRE TIPOGRAFÍAS DE LA MAQUETA:
-          - Títulos y subtítulos: Reemplazar el fallback ('Courier Prime') por tu fuente local '29LTMakina' si dispones del archivo webfont (.woff2).
-          - Cuerpo de texto: Reemplazar el fallback ('Playfair Display') por tu fuente local 'The yougets'.
+        /* NOTA SOBRE LAS TIPOGRAFÍAS DE TU PROYECTO:
+           - Títulos / Subtítulos: El diseño requiere "29LTMakina" (mapeado aquí con 'Special Elite' / 'Courier Prime' como alternativa vintage).
+           - Cuerpo de texto: El diseño requiere "The yougets" (mapeado con 'Cormorant Garamond' / 'Reenie Beanie' para emular el diario manuscrito nostálgico).
         */
 
         :root {
-            /* Paleta de colores: Vibrante cálida con armonía análoga (Terracota, Coral, Ocre, Arena) */
-            --bg-base: #f9f4ed;
-            --primary-warm: #d96b43;   /* Terracota vibrante */
-            --secondary-warm: #e8a75a; /* Ocre cálido */
-            --accent-coral: #e25b5b;   /* Coral / Rosa vibrante de la maqueta */
-            --text-dark: #3a2e2b;
-            --text-muted: #6e5d58;
-            --card-bg: #ffffff;
-            
-            --font-titles: '29LTMakina', 'Courier Prime', Courier, monospace;
-            --font-body: 'The yougets', 'Playfair Display', Georgia, serif;
-            --font-handwritten: 'Caveat', cursive;
+            /* Paleta de colores análoga, cálida, vintage y nostálgica (Café, Sepia, Pergamino, Terracota atenuado) */
+            --bg-parchment: #f4eee1;
+            --bg-cream: #faf6ee;
+            --coffee-dark: #3e2723;
+            --coffee-medium: #5d4037;
+            --vintage-sepia: #8d6e63;
+            --accent-terracota: #a14a38;
+            --soft-border: #d7ccc8;
+            --text-dark: #2d1f1e;
+            --text-muted: #5c4e4c;
+
+            --font-machina: '29LTMakina', 'Special Elite', 'Courier Prime', Courier, monospace;
+            --font-yougets: 'The yougets', 'Cormorant Garamond', Georgia, serif;
+            --font-script: 'Reenie Beanie', cursive;
         }
 
         * {
@@ -35,381 +37,367 @@
         }
 
         body {
-            font-family: var(--font-body);
-            background-color: var(--bg-base);
+            font-family: var(--font-yougets);
+            background-color: var(--bg-parchment);
             color: var(--text-dark);
             line-height: 1.6;
-            font-size: 16px;
+            font-size: 17px;
         }
 
-        /* Estilos de Textos y Títulos */
+        /* Tipografías Generales */
         h1, h2, h3, h4, .font-machina {
-            font-family: var(--font-titles);
-            font-weight: 700;
+            font-family: var(--font-machina);
+            font-weight: normal;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
+            color: var(--coffee-dark);
         }
 
         p {
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
+            margin-bottom: 1.2rem;
             color: var(--text-muted);
+            text-align: justify;
         }
 
-        .highlight-text {
-            font-family: var(--font-handwritten);
-            font-size: 2.2rem;
-            color: var(--accent-coral);
-            line-height: 1.2;
-        }
-
-        /* Contenedores */
         .container {
             width: 100%;
-            max-width: 1100px;
+            max-width: 1000px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
 
-        /* Header / Hero Section */
+        /* Header / Sección Inicial Estilo Rollo de Película Cinematográfica */
         header {
-            background: linear-gradient(135deg, #fdfaf6 0%, #f3ede2 100%);
+            background-color: #ebdcb9;
+            background-image: radial-gradient(rgba(0,0,0,0.02) 1px, transparent 0);
+            background-size: 24px 24px;
             padding: 80px 0 60px 0;
             text-align: center;
-            border-bottom: 2px dashed var(--secondary-warm);
+            border-bottom: 4px double var(--vintage-sepia);
             position: relative;
         }
 
+        /* Simulación del rollo de película estético en la parte superior lateral */
         header::before {
-            content: "★ ★ ★";
+            content: '';
             position: absolute;
-            top: 25px;
-            left: 50%;
-            transform: translateX(-50%);
-            color: var(--secondary-warm);
-            font-size: 1.2rem;
-            letter-spacing: 10px;
+            top: 0; left: 15px;
+            width: 50px; height: 100%;
+            background: linear-gradient(to bottom, #1a1a1a 70%, transparent 70%);
+            background-size: 100% 20px;
+            opacity: 0.15;
         }
 
         .hero-title {
             font-size: 2.8rem;
-            color: var(--text-dark);
-            margin-top: 20px;
-            margin-bottom: 5px;
             line-height: 1.2;
+            margin-bottom: 10px;
+            color: var(--coffee-dark);
         }
 
         .hero-subtitle {
-            font-size: 1.2rem;
-            color: var(--text-muted);
+            font-size: 1.1rem;
+            font-family: var(--font-machina);
+            color: var(--vintage-sepia);
             margin-bottom: 35px;
-            font-family: var(--font-titles);
         }
 
-        .btn-start {
+        .btn-action {
             display: inline-block;
-            background-color: var(--text-dark);
+            background-color: var(--coffee-dark);
             color: #ffffff;
-            padding: 12px 40px;
-            font-family: var(--font-titles);
+            padding: 12px 45px;
+            font-family: var(--font-machina);
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             letter-spacing: 2px;
+            border: 1px solid var(--coffee-medium);
             transition: all 0.3s ease;
-            border: none;
             cursor: pointer;
         }
 
-        .btn-start:hover {
-            background-color: var(--primary-warm);
-            transform: translateY(-2px);
+        .btn-action:hover {
+            background-color: var(--accent-terracota);
+            transform: translateY(-1px);
         }
 
-        /* Sección Introductoria (Palabras que siempre vivieron...) */
-        .intro-section {
-            padding: 60px 0;
-            background-color: #faf6f0;
+        /* Bloques de contenido con fondos alternados */
+        .content-section {
+            padding: 70px 0;
+            border-bottom: 1px dashed var(--soft-border);
+        }
+        .bg-cream { background-color: var(--bg-cream); }
+        .bg-parchment { background-color: var(--bg-parchment); }
+
+        .section-title {
+            font-size: 1.7rem;
+            color: var(--coffee-dark);
+            margin-bottom: 25px;
+            line-height: 1.3;
+            border-bottom: 1px solid var(--soft-border);
+            padding-bottom: 8px;
+            display: inline-block;
         }
 
-        .grid-intro {
+        /* Layout de dos columnas adaptable */
+        .grid-layout {
             display: block;
         }
 
-        .section-title {
-            font-size: 1.8rem;
-            color: var(--primary-warm);
-            margin-bottom: 25px;
-            position: relative;
-            padding-bottom: 10px;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 60px;
-            height: 3px;
-            background-color: var(--accent-coral);
-        }
-
-        /* Fotos tipo Polaroid decorativas */
-        .photo-gallery-preview {
+        /* Estructura de imágenes polaroid vintage */
+        .polaroid-container {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 25px;
             align-items: center;
-            margin-top: 30px;
+            margin-top: 35px;
         }
 
-        .polaroid {
-            background: #ffffff;
-            padding: 15px 15px 35px 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            border: 1px solid #e2ded8;
-            transform: rotate(-2deg);
-            width: 85%;
-            max-width: 260px;
-            transition: transform 0.3s ease;
+        .polaroid-card {
+            background: #fbf9f5;
+            padding: 14px 14px 40px 14px;
+            box-shadow: 0 5px 15px rgba(40,30,20,0.08);
+            border: 1px solid #e3dac9;
+            width: 90%;
+            max-width: 280px;
+            transform: rotate(-1.5deg);
+        }
+        .polaroid-card:nth-child(2) {
+            transform: rotate(2.5deg);
+            margin-top: -10px;
         }
 
-        .polaroid:nth-child(2) {
-            transform: rotate(3deg);
-            margin-top: -15px;
-        }
-
-        .polaroid:hover {
-            transform: rotate(0deg) scale(1.03);
-        }
-
-        .polaroid-img-placeholder {
+        .image-placeholder {
             width: 100%;
-            height: 180px;
-            background-color: #e2ded8;
+            height: 190px;
+            background-color: #d7ccc8;
+            background-image: repeating-linear-gradient(45deg, transparent, transparent 5px, rgba(255,255,255,.2) 5px, rgba(255,255,255,.2) 10px);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-family: var(--font-titles);
-            font-size: 0.8rem;
-            color: #8c8581;
-        }
-
-        /* Bloques de Contenido Generales */
-        .content-block {
-            padding: 60px 0;
-            border-top: 1px solid #ebdcd0;
-        }
-
-        .bg-white { background-color: #ffffff; }
-        .bg-warm-light { background-color: #fdf9f3; }
-
-        /* Estilo para Sinopsis y Elementos con Ilustración Lateral */
-        .grid-two-columns {
-            display: block;
-        }
-
-        .decorative-illustration {
+            font-family: var(--font-machina);
+            font-size: 0.75rem;
+            color: var(--coffee-medium);
             text-align: center;
-            padding: 20px;
-            margin-top: 20px;
+            padding: 10px;
         }
 
-        .plant-icon {
-            font-size: 5rem;
-            color: #8fa89b; /* Color sage/hoja de la maqueta original */
-            opacity: 0.8;
+        /* Caja de Ilustración botánica o detalles */
+        .illustration-box {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .illustration-element {
+            font-size: 5.5rem;
+            color: #8fa89b;
+            opacity: 0.75;
         }
 
-        /* Sección "Lo que encontrarás" - Estilo Nota Torn */
-        .notebook-page {
+        /* Elemento centralizado e imagen horizontal panorámica */
+        .panoramic-image-box {
+            width: 100%;
+            max-width: 500px;
+            height: 200px;
+            background-color: #ccbfae;
+            margin: 30px auto 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-machina);
+            font-size: 0.85rem;
+            color: var(--coffee-dark);
+            border: 2px solid var(--soft-border);
+        }
+
+        /* Sección "Lo que encontrarás" - Hoja de nota manuscrita */
+        .letter-paper {
             background: #ffffff;
-            border-left: 5px solid var(--accent-coral);
-            padding: 30px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-            margin: 30px auto;
-            max-width: 650px;
-            position: relative;
+            border-left: 4px solid var(--accent-terracota);
+            padding: 35px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            margin: 35px auto 0 auto;
+            max-width: 600px;
         }
 
-        .notebook-page::before {
-            content: '';
-            position: absolute;
-            top: 0; right: 20px;
-            width: 30px; height: 30px;
-            background-color: var(--secondary-warm);
-            opacity: 0.3;
-            clip-path: polygon(0 0, 100% 0, 100% 100%);
-        }
-
-        .notebook-list {
+        .letter-list {
             list-style: none;
         }
 
-        .notebook-list li {
-            font-family: var(--font-titles);
-            font-size: 1rem;
-            padding: 12px 0;
-            border-bottom: 1px dashed #e2ded8;
+        .letter-list li {
+            font-family: var(--font-machina);
+            font-size: 0.95rem;
+            padding: 14px 0;
+            border-bottom: 1px dotted #dfd5c6;
             display: flex;
             align-items: baseline;
+            color: var(--coffee-medium);
         }
 
-        .notebook-list li span {
+        .letter-list li span {
             margin-right: 15px;
-            color: var(--primary-warm);
+            color: var(--accent-terracota);
             font-weight: bold;
         }
 
-        /* Bloque de Cita Destacada */
-        .quote-banner {
-            background-color: var(--primary-warm);
-            color: #ffffff;
-            padding: 60px 20px;
+        /* Bloque Epígrafe / Cita del libro */
+        .quote-section {
+            background-color: var(--coffee-dark);
+            color: #f7f1e5;
+            padding: 65px 24px;
             text-align: center;
         }
 
-        .quote-banner blockquote {
-            font-family: var(--font-titles);
-            font-size: 1.4rem;
-            max-width: 800px;
-            margin: 0 auto 20px auto;
+        .quote-section blockquote {
+            font-family: var(--font-machina);
+            font-size: 1.35rem;
+            max-width: 750px;
+            margin: 0 auto 25px auto;
             line-height: 1.5;
+            color: #ebdcb9;
         }
 
-        .quote-banner p {
-            color: #ffe6dd;
-            font-size: 1.1rem;
-            margin-bottom: 0;
-        }
-
-        /* Galería de Fotografías del Producto y Proceso */
-        .product-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        .gallery-item {
-            background: #ffffff;
-            border: 1px solid #ebdcd0;
-            padding: 12px;
+        .quote-section p {
+            color: #cfc0b1;
+            font-size: 1.05rem;
             text-align: center;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            margin-bottom: 0;
+            font-style: italic;
         }
 
-        .gallery-img-box {
+        /* Cuadrícula para las fotografías finales del producto físico */
+        .product-gallery-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 35px;
+        }
+
+        .gallery-box {
+            background: #ffffff;
+            border: 1px solid var(--soft-border);
+            padding: 8px;
+        }
+
+        .gallery-photo {
             width: 100%;
-            height: 220px;
-            background-color: #f0e6dc;
+            height: 150px;
+            background-color: #dfd5c6;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-family: var(--font-titles);
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            margin-bottom: 12px;
+            font-family: var(--font-machina);
+            font-size: 0.75rem;
+            color: var(--coffee-medium);
+            text-align: center;
         }
 
-        .gallery-item h4 {
-            font-size: 0.9rem;
-            color: var(--text-dark);
-            margin-top: 5px;
-        }
-
-        /* Footer / Contacto y Redes Sociales */
+        /* Footer y Datos de la Autora */
         footer {
-            background-color: #ede5da;
+            background-color: #e5dac4;
             padding: 60px 0 40px 0;
-            border-top: 3px solid var(--secondary-warm);
+            border-top: 2px solid var(--vintage-sepia);
         }
 
-        .footer-grid {
+        .footer-layout {
             display: block;
         }
 
-        .contact-info h3 {
-            font-size: 1.4rem;
-            color: var(--text-dark);
+        .contact-header {
+            font-size: 1.35rem;
             margin-bottom: 15px;
+            color: var(--coffee-dark);
+            line-height: 1.4;
         }
 
-        .contact-details {
+        .handwritten-highlight {
+            font-family: var(--font-script);
+            font-size: 3.2rem;
+            color: var(--accent-terracota);
+            display: block;
+            margin: 10px 0;
+        }
+
+        .meta-list {
             list-style: none;
-            margin-top: 25px;
-            margin-bottom: 30px;
+            margin: 25px 0;
         }
 
-        .contact-details li {
+        .meta-list li {
             margin-bottom: 15px;
             font-size: 1.1rem;
         }
 
-        .contact-details strong {
-            font-family: var(--font-titles);
+        .meta-list strong {
+            font-family: var(--font-machina);
+            font-size: 0.8rem;
             display: block;
-            font-size: 0.85rem;
-            color: var(--primary-warm);
-            margin-bottom: 2px;
+            color: var(--accent-terracota);
         }
 
-        .social-links a {
+        .social-block h3 {
+            font-size: 1.05rem;
+            margin-bottom: 15px;
+            color: var(--coffee-medium);
+        }
+
+        .social-box a {
             display: block;
             color: var(--text-dark);
             text-decoration: none;
-            font-family: var(--font-titles);
+            font-family: var(--font-machina);
+            font-size: 0.9rem;
             margin-bottom: 12px;
-            font-size: 0.95rem;
             transition: color 0.2s ease;
         }
 
-        .social-links a:hover {
-            color: var(--accent-coral);
+        .social-box a:hover {
+            color: var(--accent-terracota);
         }
 
-        .copyright {
+        .footer-bottom {
             text-align: center;
-            margin-top: 40px;
-            padding-top: 30px;
-            border-top: 1px solid #dbcfc2;
-            font-family: var(--font-titles);
-            font-size: 0.8rem;
-            color: var(--text-muted);
+            margin-top: 45px;
+            padding-top: 25px;
+            border-top: 1px solid #cfc0b1;
+            font-family: var(--font-machina);
+            font-size: 0.75rem;
+            color: var(--coffee-medium);
         }
 
-        /* MEDIA QUERIES PARA RESPONSIVIDAD (DESKTOP) */
+        /* CONSULTAS DE MEDIOS (RESPONSIVO EN ESCRITORIO) */
         @media (min-width: 768px) {
-            .grid-intro {
+            .grid-layout {
                 display: grid;
                 grid-template-columns: 1.2fr 0.8fr;
                 gap: 50px;
                 align-items: center;
             }
 
-            .photo-gallery-preview {
-                flex-direction: column;
+            .polaroid-container {
                 margin-top: 0;
             }
 
-            .grid-two-columns {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 50px;
-                align-items: center;
+            .illustration-box {
+                margin-top: 0;
             }
 
-            .footer-grid {
+            .product-gallery-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 20px;
+            }
+
+            .gallery-photo {
+                height: 180px;
+            }
+
+            .footer-layout {
                 display: grid;
                 grid-template-columns: 1.2fr 0.8fr;
-                gap: 60px;
-            }
-
-            .contact-details {
-                margin-bottom: 0;
+                gap: 50px;
             }
 
             .hero-title {
-                font-size: 3.8rem;
+                font-size: 3.6rem;
             }
         }
     </style>
@@ -420,95 +408,96 @@
         <div class="container">
             <h1 class="hero-title">Cartas que nunca escribí</h1>
             <p class="hero-subtitle">De: Mí | Para: ¿?</p>
-            <button class="btn-start" onclick="document.getElementById('sinopsis').scrollIntoView({behavior: 'smooth'});">EMPEZAR</button>
+            <button class="btn-action" onclick="document.getElementById('sinopsis').scrollIntoView({behavior: 'smooth'});">EMPEZAR</button>
         </div>
     </header>
 
-    <section class="intro-section">
+    <section class="content-section bg-cream">
         <div class="container">
-            <div class="grid-intro">
+            <div class="grid-layout">
                 <div>
                     <h2 class="section-title">Palabras que siempre vivieron en mi corazón</h2>
                     <p>Hay sentimientos que deambulan esperando el momento correcto para ser expresados. Algunos procesos se quedan en silencio, mientras se editan ideas que de alguna manera buscan la forma de doler.</p>
-                    <p>Este libro reúne esas cartas que durante mucho tiempo han estado en la lista de pensamientos, con la esperanza de que el amor, la gratitud y todo aquello que dolió, de una u otra manera, pueda sanar.</p>
+                    <p>Este libro reúne esas cartas que durante mucho tiempo han estado en la lista de pensamientos, con la esperanza de que el amor, la gratitud y todo aquello que dolió de una u otra forma, pueda encontrar descanso.</p>
                 </div>
-                <div class="photo-gallery-preview">
-                    <div class="polaroid">
-                        <div class="polaroid-img-placeholder">[ Fotografía del Proceso ]</div>
+                <div class="polaroid-container">
+                    <div class="polaroid-card">
+                        <div class="image-placeholder">[ Foto Proceso Interno ]</div>
                     </div>
-                    <div class="polaroid">
-                        <div class="polaroid-img-placeholder">[ Vista del Libro ]</div>
+                    <div class="polaroid-card">
+                        <div class="image-placeholder">[ Fotografía Manuscrito ]</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="sinopsis" class="content-block bg-white">
+    <section id="sinopsis" class="content-section bg-parchment">
         <div class="container">
-            <div class="grid-two-columns">
+            <div class="grid-layout">
                 <div>
                     <h2 class="section-title">Sobre el libro</h2>
-                    <p><strong>"Cartas que nunca escribí"</strong> es un libro de cartas dedicadas a las personas más importantes de mi vida.</p>
-                    <p>No habla de grandes historias, sino de los pequeños momentos que terminan convirtiéndose en los recuerdos más valiosos: un abrazo, una palabra de aliento, un sacrificio que pasó desapercibido o una frase que nunca se dijo en vida. Es un recordatorio de que el amor también merece escribirse.</p>
+                    <p><strong>"Cartas que nunca escribí"</strong> es un compendio de correspondencias dedicadas de forma profunda a los seres más determinantes de mi existencia.</p>
+                    <p>No recopila relatos de magnitudes épicas, sino los ínfimos fragmentos cotidianos que devienen en tesoros de la memoria: un abrazo inesperado, una palabra de aliento oportuna, un sacrificio silencioso o la frase exacta que jamás logramos pronunciar en vida. Es un recordatorio físico de que el amor también merece ser escuchado.</p>
                 </div>
-                <div class="decorative-illustration">
-                    <span class="plant-icon">🌿</span>
+                <div class="illustration-box">
+                    <div class="illustration-element">🌿</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="content-block bg-warm-light">
-        <div class="container" style="max-width: 800px; text-align: center;">
-            <h2 class="section-title" style="margin: 0 auto 25px auto; display: inline-block;">¿Por qué nació este libro?</h2>
-            <p>Muchas veces amamos profundamente a personas sin saber lo que representan para ellas. Y quizá no se enteren. Pero también creo que lo que se da con amor tiene que quedarse para siempre. Este libro nació con ese fin, en un tiempo de muchas dudas y que requería de una respuesta. Quise dejar un pedacito de mi corazón en estas páginas para que, sin importar a dónde las lleve el viento, recuerden qué significan para mí.</p>
+    <section class="content-section bg-cream">
+        <div class="container" style="max-width: 850px; text-align: center;">
+            <h2 class="section-title">¿Por qué nació este libro?</h2>
+            <p style="text-align: center;">Muchas veces amamos profundamente a personas sin que ellas alcancen a dimensionar lo que representan en nuestro mapa de vida. Y quizá nunca lo sepan con total certeza. Pero sostengo que todo aquello que se entrega genuinamente desde el afecto debe perdurar.</p>
+            <p style="text-align: center;">Este volumen se materializó con ese propósito, gestado en un periodo cargado de incertidumbres que demandaban respuestas íntimas. Quise depositar un fragmento vivo de mi corazón en estas hojas para que, independientemente del rumbo hacia donde sople el viento, no olviden su valor.</p>
+            
+            <div class="panoramic-image-box">
+                [ Fotografía Panorámica del Cuaderno Abierto ]
+            </div>
         </div>
     </section>
 
-    <section class="content-block bg-white">
+    <section class="content-section bg-parchment">
         <div class="container">
-            <h2 class="section-title" style="text-align: center; margin: 0 auto 30px auto; display: block; max-width: 320px;">Lo que encontrarás</h2>
+            <h2 class="section-title" style="display: block; text-align: center; max-width: 300px; margin: 0 auto 30px auto;">Lo que encontrarás</h2>
             
-            <div class="notebook-page">
-                <ul class="notebook-list">
-                    <li><span>1.</span> Cartas escritas desde el corazón.</li>
-                    <li><span>2.</span> Instantes que marcaron mi vida.</li>
-                    <li><span>3.</span> Agradecimientos que nunca había expresado.</li>
-                    <li><span>4.</span> Palabras de amor para quienes siempre estuvieron conmigo.</li>
+            <div class="letter-paper">
+                <ul class="letter-list">
+                    <li><span>1.</span> Cartas escritas desde el absoluto desvelo.</li>
+                    <li><span>2.</span> Instantes sutiles que redefinieron mi rumbo.</li>
+                    <li><span>3.</span> Agradecimientos póstumos y presentes nunca antes expresados.</li>
+                    <li><span>4.</span> Palabras de amor para quienes siempre permanecieron cerca.</li>
                 </ul>
             </div>
         </div>
     </section>
 
-    <div class="quote-banner">
+    <div class="quote-section">
         <blockquote>
             "Hay cosas que nunca he sabido decirles de frente. Tal vez porque siempre he pensado que ya lo saben... pero el amor también merece escucharse."
         </blockquote>
-        <p>Si este libro llega a alguien que amo, pasen más fuerte a sus páginas para que se quede grabado un pedacito de lo que valen en mi vida, y entonces habrá cumplido su propósito.</p>
+        <p>Si este libro interactúa con alguien a quien amo, ruego que acaricien con fuerza sus páginas; solo así se impregnará la valía que tienen en mi vida, cumpliendo finalmente su cometido.</p>
     </div>
 
-    <section class="content-block bg-warm-light">
+    <section class="content-section bg-cream">
         <div class="container">
-            <h2 class="section-title">Proceso Creativo, Empaque y Diseño</h2>
-            <p>Cada elemento visual y táctil de este libro ha sido diseñado minuciosamente para reflejar la intimidad de una carta manuscrita. El empaque rescata texturas orgánicas artesanales con detalles únicos pensados en la experiencia del lector.</p>
+            <h2 class="section-title">Diseño, Empaque y Muestras Físicas</h2>
+            <p>El diseño de empaque y encuadernación rinde tributo a las texturas nostálgicas del papel envejecido, las costuras artesanales y la estética clásica del intercambio postal epistolar.</p>
             
-            <div class="product-gallery">
-                <div class="gallery-item">
-                    <div class="gallery-img-box">[ Concepto e Ideas ]</div>
-                    <h4>Proceso Creativo</h4>
+            <div class="product-gallery-grid">
+                <div class="gallery-box">
+                    <div class="gallery-photo">[ Vista General Tomada de Lado ]</div>
                 </div>
-                <div class="gallery-item">
-                    <div class="gallery-img-box">[ Retículas y Tipografía ]</div>
-                    <h4>Proceso de Diseño</h4>
+                <div class="gallery-box">
+                    <div class="gallery-photo">[ Detalle de Páginas Internas ]</div>
                 </div>
-                <div class="gallery-item">
-                    <div class="gallery-img-box">[ Caja / Envoltura ]</div>
-                    <h4>El Empaque</h4>
+                <div class="gallery-box">
+                    <div class="gallery-photo">[ Caligrafía a Detalle ]</div>
                 </div>
-                <div class="gallery-item">
-                    <div class="gallery-img-box">[ Fotografía de Producto ]</div>
-                    <h4>Producto Terminado</h4>
+                <div class="gallery-box">
+                    <div class="gallery-photo">[ Cierre del Cuaderno ]</div>
                 </div>
             </div>
         </div>
@@ -516,34 +505,34 @@
 
     <footer>
         <div class="container">
-            <div class="footer-grid">
-                <div class="contact-info">
-                    <h3>¿Tienes alguna pregunta, comentario o te gustaría conocer más sobre Cartas que nunca escribí?</h3>
-                    <p class="highlight-text">Será un gusto leerte.</p>
+            <div class="footer-layout">
+                <div>
+                    <h3 class="contact-header">¿Tienes alguna interrogante, comentario o deseas profundizar en el universo de este proyecto?</h3>
+                    <span class="handwritten-highlight">Será un gusto leerte.</span>
                     
-                    <ul class="contact-details">
+                    <ul class="meta-list">
                         <li>
-                            <strong>Teléfono:</strong>
+                            <strong>Teléfono de contacto:</strong>
                             (123) 456-7890
                         </li>
                         <li>
-                            <strong>Correo electrónico:</strong>
+                            <strong>Correo de correspondencia:</strong>
                             cartasquenuncaescribi@autor.com
                         </li>
                     </ul>
                 </div>
                 
-                <div>
-                    <h3 class="font-machina" style="font-size: 1.1rem; margin-bottom: 20px; color: var(--primary-warm);">Redes Sociales de la Autora</h3>
-                    <div class="social-links">
+                <div class="social-block">
+                    <h3>Canales oficiales de la Autora</h3>
+                    <div class="social-box">
                         <a href="#" target="_blank">📷 Instagram: @cartasquenuncaescribi</a>
                         <a href="#" target="_blank">👤 Facebook: Cartas que nunca escribí</a>
                     </div>
                 </div>
             </div>
             
-            <div class="copyright">
-                <p>&copy; 2026 Cartas que nunca escribí. Todos los derechos reservados.</p>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Cartas que nunca escribí. Todos los derechos de autor reservados.</p>
             </div>
         </div>
     </footer>
